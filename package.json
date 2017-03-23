@@ -1,0 +1,24 @@
+{
+  "name": "reol-bot",
+  "version": "1.0.0",
+  "description": "Discord Bot for r/reol",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/causztic/reol-bot.git"
+  },
+  "author": "Lim Yao Jie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/causztic/reol-bot/issues"
+  },
+  "homepage": "https://github.com/causztic/reol-bot#readme",
+  "dependencies": {
+    "discord.js": "^11.0.0",
+    "erlpack": "^0.1.2",
+    "uws": "^0.12.0"
+  }
+}
