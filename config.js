@@ -1,5 +1,5 @@
-var env = require('node-env-file');
-env(__dirname + '/.env');
+require('dotenv').config()
+
 module.exports = {
 
   // Your bot name. Typically, this is your bot's username without the discriminator.
