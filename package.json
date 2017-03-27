@@ -13,8 +13,6 @@
   ],
   "scripts": {
     "bot": "node ./lib/index.js",
-    "prepublish": "gulp prepublish",
-    "test": "gulp",
     "start": "node ./lib/index.js"
   },
   "repository": {
