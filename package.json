@@ -35,6 +35,7 @@
     "googleapis": "^18.0.0",
     "instagram-posts": "^1.0.0",
     "node-cron": "^1.1.3",
+    "node-opus": "^0.2.6",
     "node-pg-migrate": "^1.2.1",
     "pg": "^6.1.5",
     "uws": "^0.12.0"
