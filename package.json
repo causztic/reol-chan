@@ -39,6 +39,11 @@
     "pg": "^6.1.5",
     "uws": "^0.14.1",
     "ytdl-core": "^0.12.1",
-    "instagram-screen-scrape": "github:causztic/instagram-screen-scrape#master"
+    "instagram-screen-scrape": "github:causztic/instagram-screen-scrape#master",
+    "arrify": "^1.0.1",
+    "get-stream": "^3.0.0",
+    "limit-size-stream": "^1.0.1",
+    "stream-filter": "^2.1.0",
+    "twitter-text": "^1.14.3"
   }
 }
