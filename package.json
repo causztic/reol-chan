@@ -46,6 +46,7 @@
     "stream-filter": "^2.1.0",
     "twitter-text": "^1.14.3",
     "uws": "^0.14.1",
-    "ytdl-core": "^0.12.1"
+    "ytdl-core": "^0.12.1",
+    "aws-sdk": "2.x"
   }
 }
