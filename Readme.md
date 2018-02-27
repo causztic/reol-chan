@@ -9,6 +9,7 @@
 Make sure you have the latest NodeJS version.
 ```
 npm install
+npm start
 ```
 After this, create a `.env` file at the root directory, using `.env.sample` as a sample.
 
