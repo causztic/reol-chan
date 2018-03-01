@@ -5,7 +5,7 @@
   "homepage": "https://github.com/causztic/reol-chan#readme",
   "author": "Lim Yao Jie",
   "engines": {
-    "node": "7.7.4"
+    "node": "8.9.1"
   },
   "files": [
     "lib"
