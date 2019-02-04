@@ -1,6 +1,6 @@
 {
   "name": "reol-chan",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Discord Bot for r/reol",
   "homepage": "https://github.com/causztic/reol-chan#readme",
   "author": "Lim Yao Jie",
@@ -9,6 +9,9 @@
   },
   "files": [
     "lib"
+  ],
+  "changelog": [
+    "Added release changelog"
   ],
   "main": "index.js",
   "keywords": [
