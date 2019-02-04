@@ -43,6 +43,7 @@
     "node-opus": "^0.2.6",
     "node-pg-migrate": "3.15.0",
     "pg": "^6.4.2",
+    "pg-format": "^1.0.4",
     "redis": "^2.8.0",
     "request": "^2.87.0"
   },
