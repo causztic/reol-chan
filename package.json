@@ -11,7 +11,8 @@
     "lib"
   ],
   "changelog": [
-    "Added discography functionality"
+    "Added discography functionality",
+    "Auto migration"
   ],
   "main": "index.js",
   "keywords": [
