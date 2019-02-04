@@ -11,7 +11,6 @@ exports.up = pgm => {
     id: "id",
     year: { type: "smallint" },
     title:{ type: "varchar(200)" },
-    description: { type: "text" },
     link: { type: "text" },
     albumId: {
       type: "integer",
