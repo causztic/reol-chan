@@ -46,7 +46,9 @@
     "pg": "^6.4.2",
     "pg-format": "^1.0.4",
     "redis": "^2.8.0",
-    "request": "^2.87.0"
+    "request": "^2.87.0",
+    "lodash": ">=4.17.11",
+    "extend": ">=3.0.2"
   },
   "devDependencies": {
     "jest": "^23.6.0"
