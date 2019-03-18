@@ -1,6 +1,6 @@
 {
   "name": "reol-chan",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "Discord Bot for r/reol",
   "homepage": "https://github.com/causztic/reol-chan#readme",
   "author": "Lim Yao Jie",
@@ -11,8 +11,7 @@
     "lib"
   ],
   "changelog": [
-    "Clean up discography on populate",
-    "Fix security vulnerabilities on extend and lodash"
+    "Added r!giverole member"
   ],
   "main": "index.js",
   "keywords": [
