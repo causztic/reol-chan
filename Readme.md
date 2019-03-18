@@ -19,5 +19,7 @@ She does multiple things:
 ```
 cp .env.sample .env
 npm install
+createdb reol-chan
+npm run migrate up
 npm start
 ```
