@@ -1,6 +1,6 @@
 {
   "name": "reol-chan",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Discord Bot for r/reol",
   "homepage": "https://github.com/causztic/reol-chan#readme",
   "author": "Lim Yao Jie",
@@ -11,7 +11,7 @@
     "lib"
   ],
   "changelog": [
-    "Added r!giverole member"
+    "Updated instagram scraping library"
   ],
   "main": "index.js",
   "keywords": [
@@ -38,7 +38,7 @@
     "discord.js": "^11.3.0",
     "discord.js-commando": "^0.9.0",
     "dotenv": "^4.0.0",
-    "night-stalker": "^0.3.1",
+    "night-stalker": "^0.4.1",
     "node-cron": "^1.1.3",
     "node-opus": "^0.2.6",
     "node-pg-migrate": "3.15.0",
