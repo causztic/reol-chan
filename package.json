@@ -1,6 +1,6 @@
 {
   "name": "reol-chan",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Discord Bot for r/reol",
   "homepage": "https://github.com/causztic/reol-chan#readme",
   "author": "Lim Yao Jie",
@@ -11,7 +11,7 @@
     "lib"
   ],
   "changelog": [
-    "Updated instagram scraping library"
+    "Fix Procfile"
   ],
   "main": "index.js",
   "keywords": [
