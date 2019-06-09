@@ -50,6 +50,6 @@
     "extend": ">=3.0.2"
   },
   "devDependencies": {
-    "jest": "^23.6.0"
+    "jest": "^24.6.0"
   }
 }
