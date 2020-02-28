@@ -32,7 +32,6 @@
     "url": "https://github.com/causztic/reol-chan/issues"
   },
   "dependencies": {
-    "arrify": "^1.0.1",
     "aws-sdk": "2.x",
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.3.0",
