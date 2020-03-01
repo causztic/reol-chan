@@ -2,7 +2,7 @@
 
 Bot for r/reol's discord channel.
 She does multiple things:
-- Scrapes instagram videos / images with [night-stalker](https://github.com/causztic/night-stalker)
+- Scrapes instagram videos / images with [diene](https://github.com/causztic/diene)
 - Scrapes tweets and saves the images to the cloud (video saving coming soon)
 - Random actions
 - Ranking based on number of messages each user sent
@@ -24,3 +24,11 @@ createdb reol-chan
 npm run migrate up
 npm start
 ```
+
+## TO-DOs
+- [ ] add tests
+- [ ] region based roles
+- [ ] more admin commands
+- [ ] more fluff commands
+- [ ] more robust stat tracking
+- [ ] Typescript migration?
