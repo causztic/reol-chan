@@ -8,6 +8,7 @@ She does multiple things:
 - Ranking based on number of messages each user sent
 - Specialized User Access Control for specific channels
 - Replies with some emojis when specific messages are read (owo)
+- Provides self-assignable color-based roles (Roles must be premade)
 
 ## Requirements
 - Postgres
