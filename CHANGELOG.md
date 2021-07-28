@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.9 (2021-07-28)
+
+
+### Bug Fixes
+
+* upgrade Node to 12.22.1, update jest to latest ([87eeabb](https://github.com/causztic/reol-chan/commit/87eeabb2755f0337f116b94fc49eb17f24960f48))
+
 ### 0.6.8 (2021-07-28)
 
 
