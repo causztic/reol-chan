@@ -14,6 +14,9 @@ jobs:
         with:
           node-version: '12.x'      
       - run: npm install
+      - run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"      
       - run: npm run release
       - name: Push changes
         uses: ad-m/github-push-action@master
