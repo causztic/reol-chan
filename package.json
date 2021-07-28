@@ -1,6 +1,6 @@
 {
   "name": "reol-chan",
-  "version": "0.5.2",
+  "version": "0.6.3",
   "description": "Discord Bot for r/reol",
   "homepage": "https://github.com/causztic/reol-chan#readme",
   "author": "Lim Yao Jie",
@@ -21,7 +21,8 @@
     "bot": "node ./lib/index.js",
     "start": "node ./lib/index.js",
     "migrate": "node-pg-migrate",
-    "test": "jest"
+    "test": "jest",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -50,6 +51,7 @@
   "devDependencies": {
     "jest": "^26.1.0",
     "mixin-deep": ">=2.0.1",
-    "set-value": ">=3.0.2"
+    "set-value": ">=3.0.2",
+    "standard-version": "^9.3.1"
   }
 }
