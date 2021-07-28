@@ -21,7 +21,8 @@
     "bot": "node ./lib/index.js",
     "start": "node ./lib/index.js",
     "migrate": "node-pg-migrate",
-    "test": "jest"
+    "test": "jest",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
