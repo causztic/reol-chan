@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.7 (2021-07-28)
+
+
+### Bug Fixes
+
+* Update workflow name ([be88e85](https://github.com/causztic/reol-chan/commit/be88e850916007b11a2c107481e0efa2dbb90e59))
+
 ### 0.6.6 (2021-07-28)
 
 
