@@ -2,8 +2,6 @@
 
 Bot for r/reol's discord channel.
 She does multiple things:
-- Scrapes instagram videos / images with [diene](https://github.com/causztic/diene)
-- Scrapes tweets and saves the images to the cloud (video saving coming soon)
 - Random actions
 - Ranking based on number of messages each user sent
 - Specialized User Access Control for specific channels
