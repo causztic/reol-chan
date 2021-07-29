@@ -35,8 +35,8 @@
   "dependencies": {
     "aws-sdk": "2.x",
     "diene": "0.0.7",
-    "discord.js": "^11.3.0",
-    "discord.js-commando": "^0.9.0",
+    "discord.js": "^12.5.3",
+    "discord.js-commando": "^0.12.3",
     "dom-parser": "^0.1.6",
     "dotenv": "^4.0.0",
     "extend": ">=3.0.2",
