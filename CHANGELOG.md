@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.12 (2021-08-05)
+
+
+### Features
+
+* Add South Asia and India roles ([a27c5d8](https://github.com/causztic/reol-chan/commit/a27c5d812e00fa98d697f0896b82b6a33bf6aea9))
+
 ### 0.6.11 (2021-07-30)
 
 ### 0.6.10 (2021-07-29)
