@@ -1,21 +1,29 @@
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import { CommandInteraction, EmbedField, MessageEmbed } from "discord.js";
 import { CommandInteractionConsumer } from "./types";
 
-const HIDDEN_ROLES = ['Admin', 'Moderator', 'Bae', 'Bot', 'Reolist Nun', 'Nitro Booster', 'Statbot'];
-
 const listRoles = async (interaction: CommandInteraction) => {
-  const roles = await interaction.guild?.roles.fetch();
-  const roleNames = roles?.filter((role) => !HIDDEN_ROLES.includes(role.name))
-                          .map((role) => ({ name: role.name, value: role.name }));
+  // fields max is 25
+  const embed = new MessageEmbed()
+    .setColor(0x42cef5)
+    .setDescription("■▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬■ \n"
+      + "**General Roles** \n"
+      + "Admin \n"
+      + "Moderator - For trusted friends to moderate the server \n"
+      + "Member - Default role showing that you joined the server and verified yourself \n"
+      + "■▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬■ \n"
+      + "**Woooooo Colors!** \n"
+      + "Options are currently Red, Blue, Green, and Purple \n"
+      + "■▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬■ \n"
+      + "**Regional Roles** \n"
+      + "**NA:** US East, US Central, US West \n"
+      + "**Europe:** Europe, UK, Germany, Scandinavia \n"
+      + "**Asia:** SEA, South Asia, India, Japan \n"
+      + "**Other:** Australia, South America \n"
+      + "■▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬■ \n");
 
-  if (roleNames) {
-    // fields max is 25
-    const embed = new MessageEmbed().addFields(...roleNames);
-
-    await interaction.reply({
-      ephemeral: true, content: 'Here is a list of assignable roles!', embeds: [embed]
-    });
-  }
+  await interaction.reply({
+    ephemeral: true, content: 'Here is a list of assignable roles!', embeds: [embed]
+  });
 }
 
 export const handleRoles: CommandInteractionConsumer = async (interaction: CommandInteraction): Promise<void> => {
