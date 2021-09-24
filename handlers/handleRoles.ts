@@ -1,6 +1,9 @@
 import {
-  CommandInteraction, GuildMember, MessageEmbed,
+  CommandInteraction, GuildMember, Message, MessageEmbed,
 } from 'discord.js';
+import { getGeneralChannel } from '../util/channel';
+import { isMember } from '../util/member';
+import { mustBeInGuild } from '../util/mustBeInGuild';
 import { CommandInteractionConsumer } from './types';
 
 const listRoles = async (interaction: CommandInteraction) => {
@@ -30,31 +33,39 @@ const listRoles = async (interaction: CommandInteraction) => {
 
 // TODO: move to constants file
 const WHITELISTED_ROLES = [
+  'member',
   'red', 'green', 'blue', 'purple',
   'scandinavia', 'us central', 'us east', 'us west', 'uk', 'europe', 'germany',
   'sea', 'japan', 'australia', 'south america', 'india', 'south asia',
 ];
 
+// TODO: refactor
 const giveRole = async (interaction: CommandInteraction) => {
+  mustBeInGuild(interaction);
+
   const input = interaction.options.getString('name', true);
+  const member = (interaction.member! as GuildMember);
 
-  // TODO: throw GuildOnlyError for parent to handle
-  if (interaction.guild === null || !(interaction.member instanceof GuildMember)) {
-    return interaction.reply({
-      ephemeral: true, content: 'This can only be run in the r/reol server.',
-    });
-  }
-
-  // TODO: only allow members to run other role commands
-  // non-members can only /role add member
   if (WHITELISTED_ROLES.find((role) => role === input.toLowerCase())) {
-    const role = interaction.guild.roles.cache.find((role) => role.name.toLowerCase() === input.toLowerCase());
+    const role = interaction.guild!.roles.cache.find((role) => role.name.toLowerCase() === input.toLowerCase());
 
     if (role) {
-      interaction.member.roles.add(role);
-      return interaction.reply({
-        ephemeral: true, content: `You have the ${role.name} role now!`,
-      });
+      if (isMember(member) && role.name.toLowerCase() !== 'member') {
+        member.roles.add(role);
+        return interaction.reply({
+          ephemeral: true, content: `You have the ${role.name} role now!`,
+        });
+      } 
+      
+      if (!isMember(member) && role.name.toLowerCase() === 'member') {
+        // non members can only give member role to themselves
+        member.roles.add(role);
+        getGeneralChannel(interaction.client)?.send(
+          `Welcome to the server, <@${member.id}>! <:wutGiga:297897855727697921>`
+        );
+
+        return interaction.reply({ ephemeral: true, content: 'You are now a member!' });
+      }
     }
   }
 
