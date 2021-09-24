@@ -1,2 +1,2 @@
 worker: node ./lib/index.js
-release: PGSSLMODE=require npm run migrate up
+release: PGSSLMODE=no-verify npm run migrate up
