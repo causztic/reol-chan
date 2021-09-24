@@ -1,4 +1,2 @@
-node_modules/**/*
-.env
-npm-debug.log
-.node-persist
+node_modules
+.DS_Store

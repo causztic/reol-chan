@@ -1,45 +1,25 @@
 {
   "name": "reol-chan",
-  "version": "0.6.21",
+  "version": "1.0.0",
   "description": "Discord Bot for r/reol",
-  "homepage": "https://github.com/causztic/reol-chan#readme",
-  "author": "Lim Yao Jie",
-  "engines": {
-    "node": "12"
-  },
-  "files": [
-    "lib"
-  ],
   "main": "index.js",
-  "keywords": [
-    ""
-  ],
   "scripts": {
-    "bot": "node ./lib/index.js",
-    "start": "node ./lib/index.js",
-    "migrate": "node-pg-migrate up --reject-unauthorized",
-    "release": "standard-version"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/causztic/reol-chan.git"
   },
-  "license": "ISC",
+  "keywords": [
+    "discordjs"
+  ],
+  "author": "Lim Yao Jie",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/causztic/reol-chan/issues"
   },
+  "homepage": "https://github.com/causztic/reol-chan#readme",
   "dependencies": {
-    "aws-sdk": "2.x",
-    "discord.js": "^12.5.3",
-    "discord.js-commando": "^0.12.3",
-    "dotenv": "^4.0.0",
-    "node-pg-migrate": "^6",
-    "pg": "^6.4.2",
-    "pg-format": "^1.0.4",
-    "redis": "^3.1.1",
-    "request": "^2.88.2"
-  },
-  "devDependencies": {
-    "standard-version": "^9.3.1"
+    "discord.js": "^13.1.0"
   }
 }
