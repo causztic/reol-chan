@@ -1,14 +1,19 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-console */
+/* eslint-disable global-require */
+
 import fs from 'fs';
 import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v9';
 import { clientId, guildId, token } from '../config.json';
 
 const commands = [];
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.ts') && !file.startsWith('index'));
+const commandFiles = fs.readdirSync('./commands').filter((file) => file.endsWith('.ts') && !file.startsWith('index'));
 
+// eslint-disable-next-line no-restricted-syntax
 for (const file of commandFiles) {
   const command = require(`./${file}`);
-  console.log(`Registering ${file}`)
+  console.log(`Registering ${file}`);
   commands.push(command.data.toJSON());
 }
 

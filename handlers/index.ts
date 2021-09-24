@@ -1,12 +1,12 @@
-import { CommandInteraction } from "discord.js";
-import { handleRoles } from "./handleRoles";
-import { CommandInteractionConsumer } from "./types";
+import { CommandInteraction } from 'discord.js';
+import { handleRoles } from './handleRoles';
+import { CommandInteractionConsumer } from './types';
 
 const COMMAND_MAP: { [key: string]: CommandInteractionConsumer } = {
-  role: handleRoles
-}
+  role: handleRoles,
+};
 
-export const handleCommandByName = (interaction: CommandInteraction) => {
+export const handleCommandByName = (interaction: CommandInteraction): void => {
   const name = interaction.commandName;
   COMMAND_MAP[name]?.(interaction);
-}
+};
