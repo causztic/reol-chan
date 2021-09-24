@@ -33,7 +33,7 @@
     "discord.js": "^12.5.3",
     "discord.js-commando": "^0.12.3",
     "dotenv": "^4.0.0",
-    "node-pg-migrate": "^3.23.3",
+    "node-pg-migrate": "^6",
     "pg": "^6.4.2",
     "pg-format": "^1.0.4",
     "redis": "^3.1.1",
