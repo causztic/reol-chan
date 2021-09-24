@@ -17,7 +17,7 @@
   "scripts": {
     "bot": "node ./lib/index.js",
     "start": "node ./lib/index.js",
-    "migrate": "node-pg-migrate",
+    "migrate": "node-pg-migrate up --reject-unauthorized",
     "release": "standard-version"
   },
   "repository": {
