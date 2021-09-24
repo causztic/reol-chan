@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.22 (2021-09-24)
+
+
+### Bug Fixes
+
+* Add --reject-unauthorized to node-pg-migrate ([2b5766d](https://github.com/causztic/reol-chan/commit/2b5766dbe7fe96b903ff32b47d73269d932d309a))
+
 ### 0.6.21 (2021-09-24)
 
 
