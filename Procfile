@@ -1,0 +1,1 @@
+worker: ts-node ./lib/index.ts
