@@ -1,8 +1,8 @@
 # Notice
 
-reol-chan is undergoing a rewrite!
+reol-chan has undergone a rewrite! https://github.com/causztic/reol-chan/releases/tag/1.0.0
 
-Legacy code is in the `senpai` branch, and the current bot that is live is using the code there.
+Legacy code is in the `senpai` branch.
 
 ## Roadmap
 
