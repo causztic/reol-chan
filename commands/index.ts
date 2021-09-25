@@ -54,7 +54,7 @@ const rest = new REST({ version: '9' }).setToken(config.token);
     console.log('Successfully registered application commands.');
 
     // for each added command, we retrieve the corresponding permissions to apply to the command
-    const permissionsPayload = addedCommands.map(async (addedCommand) => {
+    const permissionsPayload = addedCommands.map((addedCommand) => {
       return {
         id: addedCommand.id,
         permissions: commands[addedCommand.name].permissions
