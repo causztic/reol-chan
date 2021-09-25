@@ -1,10 +1,11 @@
 import {
-  CommandInteraction, GuildMember, Message, MessageEmbed,
+  CommandInteraction, GuildMember, MessageEmbed,
 } from 'discord.js';
-import { getGeneralChannel } from '../util/channel';
-import { isMember } from '../util/member';
-import { mustBeInGuild } from '../util/mustBeInGuild';
 import { CommandInteractionConsumer } from './types';
+
+import { getGeneralChannel } from '@util/channel';
+import { isMember, isMemberRole, isWhiteListedRole } from '@util/role';
+import { mustBeInGuild } from '@util/mustBeInGuild';
 
 const listRoles = async (interaction: CommandInteraction) => {
   // TODO: try out multiple embeds
@@ -31,33 +32,24 @@ const listRoles = async (interaction: CommandInteraction) => {
   });
 };
 
-// TODO: move to constants file
-const WHITELISTED_ROLES = [
-  'member',
-  'red', 'green', 'blue', 'purple',
-  'scandinavia', 'us central', 'us east', 'us west', 'uk', 'europe', 'germany',
-  'sea', 'japan', 'australia', 'south america', 'india', 'south asia',
-];
-
-// TODO: refactor
 const giveRole = async (interaction: CommandInteraction) => {
   mustBeInGuild(interaction);
 
   const input = interaction.options.getString('name', true);
   const member = (interaction.member! as GuildMember);
 
-  if (WHITELISTED_ROLES.find((role) => role === input.toLowerCase())) {
+  if (isWhiteListedRole(input)) {
     const role = interaction.guild!.roles.cache.find((role) => role.name.toLowerCase() === input.toLowerCase());
 
     if (role) {
-      if (isMember(member) && role.name.toLowerCase() !== 'member') {
+      if (isMember(member) && !isMemberRole(input)) {
         member.roles.add(role);
         return interaction.reply({
           ephemeral: true, content: `You have the ${role.name} role now!`,
         });
       } 
       
-      if (!isMember(member) && role.name.toLowerCase() === 'member') {
+      if (!isMember(member) && isMemberRole(input)) {
         // non members can only give member role to themselves
         member.roles.add(role);
         getGeneralChannel(interaction.client)?.send(

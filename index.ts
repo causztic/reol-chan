@@ -3,7 +3,7 @@
 import { Client, Intents } from 'discord.js';
 import { token } from './config.json';
 import { handleCommandByName } from './handlers';
-import { MustBeInGuildError } from './util/mustBeInGuild';
+import { MustBeInGuildError } from '@util/mustBeInGuild';
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 client.on('interactionCreate', async interaction => {
