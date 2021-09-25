@@ -2,7 +2,7 @@
   "name": "reol-chan",
   "version": "1.0.0",
   "description": "Discord Bot for r/reol",
-  "main": "index.js",
+  "main": "index.ts",
   "engines": {
     "node": "16"
   },

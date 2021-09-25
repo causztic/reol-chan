@@ -3,9 +3,8 @@ import {
 } from 'discord.js';
 import { CommandInteractionConsumer } from './types';
 
-import { getGeneralChannel } from '@util/channel';
-import { isMember, isMemberRole, isWhiteListedRole } from '@util/role';
-import { mustBeInGuild } from '@util/mustBeInGuild';
+import { isWhiteListedRole } from '../util/role';
+import { mustBeInGuild } from '../util/mustBeInGuild';
 
 const listRoles = async (interaction: CommandInteraction) => {
   // TODO: try out multiple embeds
@@ -42,22 +41,11 @@ const giveRole = async (interaction: CommandInteraction) => {
     const role = interaction.guild!.roles.cache.find((role) => role.name.toLowerCase() === input.toLowerCase());
 
     if (role) {
-      if (isMember(member) && !isMemberRole(input)) {
-        member.roles.add(role);
-        return interaction.reply({
-          ephemeral: true, content: `You have the ${role.name} role now!`,
-        });
-      } 
-      
-      if (!isMember(member) && isMemberRole(input)) {
-        // non members can only give member role to themselves
-        member.roles.add(role);
-        getGeneralChannel(interaction.client)?.send(
-          `Welcome to the server, <@${member.id}>! <:wutGiga:297897855727697921>`
-        );
+      member.roles.add(role);
 
-        return interaction.reply({ ephemeral: true, content: 'You are now a member!' });
-      }
+      return interaction.reply({
+        ephemeral: true, content: `You have the ${role.name} role now!`,
+      });
     }
   }
 
