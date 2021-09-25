@@ -10,7 +10,7 @@ Legacy code is in the `senpai` branch, and the current bot that is live is using
 - [x] ESLint
 - [x] Slash command integration with Discord.js 13
 - [x] Role Management port-over
-- [ ] Now playing port-over
+- [x] Now playing port-over
 - [ ] Points port-over (Redis)
 - [ ] Postgres port-over (migrations not necessary yet)
 - [ ] Discography Management port-over
