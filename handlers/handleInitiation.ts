@@ -11,5 +11,5 @@ export const handleInitiation: CommandInteractionConsumer = async (interaction: 
     `Welcome to the server, <@${member.id}>! <:wutGiga:297897855727697921>`
   );
 
-  return interaction.reply({ ephemeral: true, content: 'You are now a member!' });
+  return interaction.reply({ content: 'You are now a member!' });
 };
