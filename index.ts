@@ -25,6 +25,13 @@ const client = new Client({
   intents: [Intents.FLAGS.GUILDS], presence: { activities }
 });
 
+client.once('ready', () => {
+  cron.schedule('*/3 * * * *', () => {
+    const item = activities[~~(Math.random() * activities.length)];
+    client.user!.setActivity(item.name!, item);
+  });  
+});
+
 client.on('interactionCreate', async interaction => {
   if (!interaction.isCommand() || !interaction.guildId) return;
 
@@ -39,9 +46,4 @@ client.on('interactionCreate', async interaction => {
   }
 });
 
-client.login(config.token).then(() => {
-  cron.schedule('*/3 * * * *', () => {
-    const item = activities[~~(Math.random() * activities.length)];
-    client.user!.setActivity(item.name!, item);
-  });  
-});
+client.login(config.token);
