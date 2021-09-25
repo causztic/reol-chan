@@ -54,13 +54,17 @@ const rest = new REST({ version: '9' }).setToken(config.token);
     console.log('Successfully registered application commands.');
 
     // for each added command, we retrieve the corresponding permissions to apply to the command
-    addedCommands.forEach(async (addedCommand) => {
-      const permissions = commands[addedCommand.name].permissions;
-      await rest.put(
-        Routes.applicationCommandPermissions(config.clientId, config.guildId, addedCommand.id),
-        { body: { permissions } }
-      );
+    const permissionsPayload = addedCommands.map(async (addedCommand) => {
+      return {
+        id: addedCommand.id,
+        permissions: commands[addedCommand.name].permissions
+      }
     });
+
+    await rest.put(
+      Routes.guildApplicationCommandsPermissions(config.clientId, config.guildId),
+      { body: permissionsPayload }
+    );
 
   } catch (error) {
     console.error(error);
