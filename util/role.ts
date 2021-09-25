@@ -4,5 +4,4 @@ const WHITELISTED_ROLES = [
   'sea', 'japan', 'australia', 'south america', 'india', 'south asia',
 ];
 
-export const isWhiteListedRole = (roleName: string): boolean => 
-  WHITELISTED_ROLES.find((role) => role === roleName.toLowerCase()) !== undefined;
+export const isWhiteListedRole = (roleName: string): boolean => WHITELISTED_ROLES.includes(roleName.toLowerCase());
