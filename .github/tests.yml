@@ -1,7 +1,10 @@
 name: Tests
 on: 
+  push:
+    branches: [ $default-branch ]
   pull_request:
-    branches: [ $default_branch ]
+    branches: [ $default-branch ]
+    
 jobs:
   build:
     runs-on: ubuntu-latest
