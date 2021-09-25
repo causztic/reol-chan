@@ -54,6 +54,29 @@ const giveRole = async (interaction: CommandInteraction) => {
   });
 };
 
+const removeRole = async (interaction: CommandInteraction) => {
+  mustBeInGuild(interaction);
+
+  const input = interaction.options.getString('name', true);
+  const member = (interaction.member! as GuildMember);
+
+  if (isWhiteListedRole(input)) {
+    const role = interaction.guild!.roles.cache.find((role) => role.name.toLowerCase() === input.toLowerCase());
+
+    if (role) {
+      member.roles.remove(role);
+
+      return interaction.reply({
+        ephemeral: true, content: `You have removed the ${role.name} role!`,
+      });
+    }
+  }
+
+  return interaction.reply({
+    ephemeral: true, content: 'You do not have this role / this role is unremoveable.',
+  });
+};
+
 export const handleRoles: CommandInteractionConsumer = async (interaction: CommandInteraction): Promise<void> => {
   const subCommand = interaction.options.getSubcommand();
   if (subCommand === 'list') {
@@ -61,6 +84,6 @@ export const handleRoles: CommandInteractionConsumer = async (interaction: Comma
   } else if (subCommand === 'give') {
     await giveRole(interaction);
   } else if (subCommand === 'remove') {
-    // TODO: Remove role by name
+    await removeRole(interaction);
   }
 };

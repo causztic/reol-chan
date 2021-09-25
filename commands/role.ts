@@ -9,6 +9,10 @@ export default {
     .addSubcommand(subcommand =>
       subcommand.setName('give').setDescription('Give yourself a new role')
         .addStringOption(option => option.setName('name').setDescription('The name of the role').setRequired(true))
-    ),
+    )
+    .addSubcommand(subcommand =>
+      subcommand.setName('remove').setDescription('Remove a role')
+        .addStringOption(option => option.setName('name').setDescription('The name of the role').setRequired(true))
+    ),    
   permissions: [{ id: roles.member, type: 1, permission: true }]
 };
