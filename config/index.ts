@@ -1,5 +1,3 @@
-import configuration from "./config.json";
-
 export default process.env.NODE_ENV === "production" ? {
   token: process.env.TOKEN ?? '',
   clientId: process.env.CLIENT_ID ?? '',
@@ -8,4 +6,4 @@ export default process.env.NODE_ENV === "production" ? {
   roles: {
     member: process.env.ROLES_MEMBER_ID ?? ''
   }
-} : configuration;
+} : require("./config.json");
