@@ -1,10 +1,10 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
-import { roles } from '../config.json';
+import config from '../config';
 
 export default {
   data: new SlashCommandBuilder().setName('initiation').setDescription('Adds yourself to the server'),
   isPublic: true,
   permissions: [
-    { id: roles.member, type: 1, permission: false },
+    { id: config.roles.member, type: 1, permission: false },
   ]
 };
