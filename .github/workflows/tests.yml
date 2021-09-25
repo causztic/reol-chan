@@ -1,9 +1,11 @@
 name: Tests
 on: 
   push:
-    branches: [ $default-branch ]
+    branches:
+      - next
   pull_request:
-    branches: [ $default-branch ]
+    branches: 
+      - next
     
 jobs:
   build:
