@@ -2,7 +2,7 @@
 import cron from 'node-cron';
 import { ActivityType } from 'discord-api-types';
 import { ActivitiesOptions, Client, Intents } from 'discord.js';
-import { token } from './config.json';
+import config from './config';
 import { handleCommandByName } from './handlers';
 import { MustBeInGuildError } from './util/mustBeInGuild';
 
@@ -39,7 +39,7 @@ client.on('interactionCreate', async interaction => {
   }
 });
 
-client.login(token).then(() => {
+client.login(config.token).then(() => {
   cron.schedule('*/3 * * * *', () => {
     const item = activities[~~(Math.random() * activities.length)];
     client.user!.setActivity(item.name!, item);

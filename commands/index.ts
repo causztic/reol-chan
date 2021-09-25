@@ -6,7 +6,7 @@
 import fs from 'fs';
 import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v9';
-import { clientId, guildId, token } from '../config.json';
+import config from '../config';
 import { ApplicationCommandOptionData } from 'discord.js';
 import { SlashCommandBuilder } from '@discordjs/builders';
 
@@ -40,14 +40,14 @@ for (const file of commandFiles) {
   };
 }
 
-const rest = new REST({ version: '9' }).setToken(token);
+const rest = new REST({ version: '9' }).setToken(config.token);
 
 // TODO: refactor
 (async () => {
   try {
     const commandData = Object.values(commands).map((command) => command.data);
     const addedCommands = (await rest.put(
-      Routes.applicationGuildCommands(clientId, guildId),
+      Routes.applicationGuildCommands(config.clientId, config.guildId),
       { body: commandData },
     ) as ApplicationCommandResponse[]);
     
@@ -57,7 +57,7 @@ const rest = new REST({ version: '9' }).setToken(token);
     addedCommands.forEach(async (addedCommand) => {
       const permissions = commands[addedCommand.name].permissions;
       await rest.put(
-        Routes.applicationCommandPermissions(clientId, guildId, addedCommand.id),
+        Routes.applicationCommandPermissions(config.clientId, config.guildId, addedCommand.id),
         { body: { permissions } }
       );
     });
