@@ -4,6 +4,19 @@ reol-chan has undergone a rewrite! https://github.com/causztic/reol-chan/release
 
 Legacy code is in the `senpai` branch.
 
+## Setup
+
+- Install PostgreSQL
+- Update `.env` with `DATABASE_URL`
+
+```
+nvm use 16
+npm ci
+npx prisma migrate dev --name init 
+```
+
+Run `prisma generate` on schema changes
+
 ## Roadmap
 
 - [x] Typescript
