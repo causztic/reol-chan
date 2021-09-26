@@ -7,31 +7,20 @@ import fs from 'fs';
 import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v9';
 import config from '../config';
-import { ApplicationCommandOptionData } from 'discord.js';
-import { SlashCommandBuilder } from '@discordjs/builders';
+import { 
+  ApplicationCommandResponse, 
+  SlashCommandBuilderJSONWithPermissions, 
+  SlashCommandWithPermissions } from './types';
 
-interface ApplicationCommandResponse {
-  id: string,
-  application_id: string,
-  name: string,
-  description: string,
-  version: string,
-  default_permission: boolean,
-  type: number,
-  guild_id: string,
-  options?: ApplicationCommandOptionData[],
-}
-
-// TODO: fix types
-const commands: Record<string, any> = {};
-const commandFiles = fs.readdirSync('./commands').filter((file) => file.endsWith('.ts') && !file.startsWith('index'));
+const commands: Record<string, SlashCommandBuilderJSONWithPermissions> = {};
+const commandFiles = fs.readdirSync('./commands').filter(
+  (file) => file.endsWith('.ts') && !file.startsWith('index') && !file.startsWith('types')
+);
 
 // eslint-disable-next-line no-restricted-syntax
 for (const file of commandFiles) {
   console.log(`Registering ${file}`);
-
-  const { data, permissions, isPublic }: { data: SlashCommandBuilder; permissions: any[]; isPublic?: boolean } 
-    = require(`./${file}`).default;
+  const { data, isPublic, permissions }: SlashCommandWithPermissions = require(`./${file}`).default;
 
   // https://discord.com/developers/docs/interactions/application-commands
   commands[data.name] = {
@@ -50,7 +39,7 @@ const rest = new REST({ version: '9' }).setToken(config.token);
       Routes.applicationGuildCommands(config.clientId, config.guildId),
       { body: commandData },
     ) as ApplicationCommandResponse[]);
-    
+
     console.log('Successfully registered application commands.');
 
     // for each added command, we retrieve the corresponding permissions to apply to the command
