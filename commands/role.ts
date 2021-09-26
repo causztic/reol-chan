@@ -1,5 +1,6 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import config from '../config';
+import { SlashCommandWithPermissions } from './types';
 
 export default {
   data: new SlashCommandBuilder()
@@ -15,4 +16,4 @@ export default {
         .addStringOption(option => option.setName('name').setDescription('The name of the role').setRequired(true))
     ),    
   permissions: [{ id: config.roles.member, type: 1, permission: true }]
-};
+} as SlashCommandWithPermissions;
