@@ -58,7 +58,7 @@ const rest = new REST({ version: '9' }).setToken(config.token);
       return {
         id: addedCommand.id,
         permissions: commands[addedCommand.name].permissions
-      }
+      };
     });
 
     await rest.put(

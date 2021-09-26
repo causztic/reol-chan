@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "jest",
+    "lint": "eslint .",
     "start": "ts-node index.ts",
     "update": "ts-node commands/index.ts"
   },
