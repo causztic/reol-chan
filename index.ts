@@ -33,7 +33,12 @@ client.once('ready', () => {
   });  
 
   cron.schedule('*/1 * * * *', () => {
-    checkTwitter(client);
+    try {
+      checkTwitter(client);
+    } catch (error) {
+      // TODO: log to testbed
+      console.error(error);
+    }
   });  
 });
 
