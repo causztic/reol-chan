@@ -5,6 +5,7 @@ import { ActivitiesOptions, Client, Intents } from 'discord.js';
 import config from './config';
 import { handleCommandByName } from './handlers';
 import { MustBeInGuildError } from './util/mustBeInGuild';
+import { checkTwitter } from 'twitter';
 
 const activities: ActivitiesOptions[] = [
   { name: '金字塔', url: "https://open.spotify.com/track/02HNBwIheiZAuzC8p1QBPn", type: ActivityType.Listening },
@@ -29,6 +30,10 @@ client.once('ready', () => {
   cron.schedule('*/3 * * * *', () => {
     const item = activities[~~(Math.random() * activities.length)];
     client.user!.setActivity(item.name!, item);
+  });  
+
+  cron.schedule('*/1 * * * *', () => {
+    checkTwitter(client);
   });  
 });
 
