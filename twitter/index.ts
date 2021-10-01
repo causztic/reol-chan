@@ -40,13 +40,14 @@ export const checkTwitter = async (client: Client): Promise<void> => {
 
     const newTweets = data.filter((datum) => !foundTweets.includes(datum.id));
 
-    dbClient.tweets.createMany({
-      data: data.map((datum) => (
+    await dbClient.tweets.createMany({
+      data: newTweets.map((datum) => (
         { url: datum.id, tweet: datum.text }
       ))
     });
 
-    newTweets.forEach((tweet) => {
+    // send newest tweet last
+    newTweets.reverse().forEach((tweet) => {
       const url = `https://www.twitter.com/RRReol/status/${tweet.id}`;
       getSocialMediaChannel(client)!.send(url);
     });
