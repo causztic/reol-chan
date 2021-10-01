@@ -5,7 +5,7 @@ import { ActivitiesOptions, Client, Intents } from 'discord.js';
 import config from './config';
 import { handleCommandByName } from './handlers';
 import { MustBeInGuildError } from './util/mustBeInGuild';
-import { checkTwitter } from 'twitter';
+import { checkTwitter } from './twitter';
 
 const activities: ActivitiesOptions[] = [
   { name: '金字塔', url: "https://open.spotify.com/track/02HNBwIheiZAuzC8p1QBPn", type: ActivityType.Listening },
