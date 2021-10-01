@@ -13,7 +13,7 @@ export const getGeneralChannel = (client: Client): TextChannel | undefined => {
 
 export const getSocialMediaChannel = (client: Client): TextChannel | undefined => {
   const channel = client.channels.cache.find(
-    channel => channel.id === config.socialMediaChannel
+    channel => channel.id === config.socialMediaChannelId
   );
 
   if (channel !== undefined) {
