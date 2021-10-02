@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import { Client } from "discord.js";
 import config from '../config';
-import { PrismaClient } from '.prisma/client';
+import { PrismaClient } from '@prisma/client';
 import { getSocialMediaChannel } from '../util/channel';
 
 declare type TwitterTimeline = {
