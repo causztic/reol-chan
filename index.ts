@@ -32,14 +32,13 @@ client.once('ready', () => {
     client.user!.setActivity(item.name!, item);
   });  
 
-  cron.schedule('*/1 * * * *', () => {
-    try {
-      checkTwitter(client);
-    } catch (error) {
-      // TODO: log to testbed
-      console.error(error);
-    }
-  });  
+  cron.schedule('*/2 * * * *', () => {
+    checkTwitter(client, { name: 'RRReol', id: '849666966' });
+  });
+
+  cron.schedule('*/5 * * * *', () => {
+    checkTwitter(client, { name: 'RRReol_official', id: '936463848449630208' });
+  });
 });
 
 client.on('interactionCreate', async interaction => {
