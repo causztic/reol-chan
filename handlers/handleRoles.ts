@@ -44,13 +44,13 @@ const giveRole = async (interaction: CommandInteraction) => {
       member.roles.add(role);
 
       return interaction.reply({
-        ephemeral: true, content: `You have the ${role.name} role now!`,
+        content: `You have the ${role.name} role now!`,
       });
     }
   }
 
   return interaction.reply({
-    ephemeral: true, content: 'This role is unavailable or not found!',
+    content: 'This role is unavailable or not found!',
   });
 };
 
@@ -67,13 +67,13 @@ const removeRole = async (interaction: CommandInteraction) => {
       member.roles.remove(role);
 
       return interaction.reply({
-        ephemeral: true, content: `You have removed the ${role.name} role!`,
+        content: `You have removed the ${role.name} role!`,
       });
     }
   }
 
   return interaction.reply({
-    ephemeral: true, content: 'You do not have this role / this role is unremoveable.',
+    content: 'You do not have this role / this role is unremoveable.',
   });
 };
 
