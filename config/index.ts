@@ -6,6 +6,8 @@ export default process.env.NODE_ENV === "production" ? {
   socialMediaChannelId: process.env.SOCIAL_MEDIA_CHANNEL_ID ?? '',
   roles: {
     member: process.env.ROLES_MEMBER_ID ?? '',
+    moderator: process.env.ROLES_MODERATOR_ID ?? '',
+    admin: process.env.ROLES_ADMIN_ID ?? '',
   },
   twitterToken: process.env.TWITTER_TOKEN ?? '',
 } : require("./config.json");
