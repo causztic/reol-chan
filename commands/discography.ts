@@ -23,6 +23,10 @@ export default {
               .setRequired(true))
             .addStringOption(option => option.setName('image').setDescription('Album image URL'))
             .addStringOption(option => option.setName('link').setDescription('Streaming link'))
+        ).addSubcommand(subCommand =>
+          subCommand.setName('populate').setDescription('Populate an album to a channel')
+          .addIntegerOption(option => option.setName('albumid').setDescription('Album ID').setRequired(true))
+          .addChannelOption(option => option.setName('channel').setDescription('Channel').setRequired(true))
         )
       ),
   permissions: [

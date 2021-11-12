@@ -1,6 +1,7 @@
-import { CommandInteraction } from "discord.js";
+import { CommandInteraction, TextChannel } from "discord.js";
 import { PrismaClient } from "@prisma/client";
 import { CommandInteractionConsumer } from "./types";
+import { createEmbed } from "../util/embed";
 
 const prisma = new PrismaClient();
 
@@ -48,6 +49,32 @@ const addAlbumToDiscography = async (interaction: CommandInteraction): Promise<v
   });
 };
 
+const populateChannelWithAlbum = async (interaction: CommandInteraction): Promise<void> => {
+  const albumId = interaction.options.getInteger('albumid', true);
+  const channel = interaction.options.getChannel('channel', true);
+
+  const album = await prisma.albums.findFirst({ 
+    where: { id: albumId },
+    include: { songs: true }
+  });
+
+  if (album === null) {
+    interaction.followUp({
+      ephemeral: true, content: 'Album not found.'
+    });
+  } else {
+    const embed = createEmbed(album);
+    const foundChannel = interaction.client.channels.cache.find(c => c === channel);
+
+    (foundChannel as TextChannel)?.send({ embeds: [embed] });
+    
+    interaction.followUp({
+      ephemeral: true, content: 'Album populated in channel.'
+    });
+  }
+};
+
+
 
 export const handleDiscography: CommandInteractionConsumer = async (interaction: CommandInteraction): Promise<void> => {
   await interaction.deferReply();
@@ -62,6 +89,8 @@ export const handleDiscography: CommandInteractionConsumer = async (interaction:
   } else if (subCommandGroup === 'album') {
     if (subCommand === 'add') {
       await addAlbumToDiscography(interaction);
+    } else if (subCommand === 'populate') {
+      await populateChannelWithAlbum(interaction);
     }
   }
 };
