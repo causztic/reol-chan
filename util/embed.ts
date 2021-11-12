@@ -9,6 +9,7 @@ const songLink = (song: songs) => {
   return song.title!;
 };
 
+
 export const createEmbed = (album: albums & { songs: songs[] }): MessageEmbed => {
   const embed = new MessageEmbed()
   .setColor(0xEEAAEE)
@@ -20,7 +21,7 @@ export const createEmbed = (album: albums & { songs: songs[] }): MessageEmbed =>
   ));
 
   if (album.link) {
-    embed.setURL(album.link);
+    embed.setDescription(`[${album.link}](${album.link})`);
   }
 
   if (album.image) {
