@@ -8,9 +8,20 @@ export default {
         subCommandGroup.setName('song').setDescription('Manage songs').addSubcommand(subCommand =>
           subCommand.setName('add').setDescription('Add a song')
             .addStringOption(option => option.setName('title').setDescription('title').setRequired(true))
-            .addStringOption(option => option.setName('album').setDescription('Album name').setRequired(true))
             .addIntegerOption(option => option.setName('index').setDescription('track #').setRequired(true))
             .addIntegerOption(option => option.setName('year').setDescription('Release Year').setRequired(true))
+            .addIntegerOption(option => option.setName('albumId').setDescription('Album ID'))
+            .addStringOption(option => option.setName('link').setDescription('Streaming link'))
+        )
+      )
+      .addSubcommandGroup(subCommandGroup =>
+        subCommandGroup.setName('album').setDescription('Manage albums').addSubcommand(subCommand =>
+          subCommand.setName('add').setDescription('Add an album')
+            .addStringOption(option => option.setName('title').setDescription('title').setRequired(true))
+            .addIntegerOption(option => option.setName('year').setDescription('Release Year').setRequired(true))
+            .addStringOption(option => option.setName('type').setDescription('Album type (EP | Album | Single)')
+              .setRequired(true))
+            .addIntegerOption(option => option.setName('image').setDescription('Album URL'))
             .addStringOption(option => option.setName('link').setDescription('Streaming link'))
         )
       ),
