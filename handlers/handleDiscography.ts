@@ -9,9 +9,9 @@ const addSongToDiscography = async (interaction: CommandInteraction): Promise<vo
   const year = interaction.options.getInteger('year', true);
   const index = interaction.options.getInteger('index', true);
   const link = interaction.options.getString('link');
-  const albumId = interaction.options.getNumber('albumId');
+  const albumId = interaction.options.getInteger('albumid');
 
-  await prisma.songs.create({
+  const result = await prisma.songs.create({
     data: {
       title,
       year,
@@ -19,6 +19,10 @@ const addSongToDiscography = async (interaction: CommandInteraction): Promise<vo
       link,
       albumId,
     }
+  });
+
+  interaction.followUp({
+    ephemeral: true, content: `Added song ${title}, id: ${result.id}`
   });
 };
 
@@ -39,15 +43,18 @@ const addAlbumToDiscography = async (interaction: CommandInteraction): Promise<v
     }
   });
 
-  return interaction.reply({
+  interaction.followUp({
     ephemeral: true, content: `Created album ${title}, id: ${result.id}`
   });
 };
 
 
 export const handleDiscography: CommandInteractionConsumer = async (interaction: CommandInteraction): Promise<void> => {
+  await interaction.deferReply();
+
   const subCommandGroup = interaction.options.getSubcommandGroup(true);
   const subCommand = interaction.options.getSubcommand(true);
+  
   if (subCommandGroup === 'song') {
     if (subCommand === 'add') {
       await addSongToDiscography(interaction);

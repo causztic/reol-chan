@@ -10,7 +10,7 @@ export default {
             .addStringOption(option => option.setName('title').setDescription('title').setRequired(true))
             .addIntegerOption(option => option.setName('index').setDescription('track #').setRequired(true))
             .addIntegerOption(option => option.setName('year').setDescription('Release Year').setRequired(true))
-            .addIntegerOption(option => option.setName('albumId').setDescription('Album ID'))
+            .addIntegerOption(option => option.setName('albumid').setDescription('Album ID'))
             .addStringOption(option => option.setName('link').setDescription('Streaming link'))
         )
       )
@@ -21,7 +21,7 @@ export default {
             .addIntegerOption(option => option.setName('year').setDescription('Release Year').setRequired(true))
             .addStringOption(option => option.setName('type').setDescription('Album type (EP | Album | Single)')
               .setRequired(true))
-            .addIntegerOption(option => option.setName('image').setDescription('Album URL'))
+            .addStringOption(option => option.setName('image').setDescription('Album image URL'))
             .addStringOption(option => option.setName('link').setDescription('Streaming link'))
         )
       ),
