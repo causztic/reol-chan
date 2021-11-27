@@ -41,6 +41,14 @@ client.once('ready', () => {
   });
 });
 
+client.on('messageCreate', async message => {
+  if (message.channelId === config.photoGalleryId) {
+    if (message.attachments.size === 0) {
+      await message.delete();
+    } 
+  }
+});
+
 client.on('interactionCreate', async interaction => {
   if (!interaction.isCommand() || !interaction.guildId) return;
 
