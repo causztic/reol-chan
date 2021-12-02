@@ -4,6 +4,7 @@ export default process.env.NODE_ENV === "production" ? {
   guildId: process.env.GUILD_ID ?? '',
   generalChannelId: process.env.GENERAL_CHANNEL_ID ?? '',
   socialMediaChannelId: process.env.SOCIAL_MEDIA_CHANNEL_ID ?? '',
+  photoGalleryId: process.env.PHOTO_GALLERY_CHANNEL_ID ?? '',
   roles: {
     member: process.env.ROLES_MEMBER_ID ?? '',
     moderator: process.env.ROLES_MODERATOR_ID ?? '',
