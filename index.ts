@@ -23,7 +23,7 @@ const activities: ActivitiesOptions[] = [
 ];
 
 const client = new Client({
-  intents: [Intents.FLAGS.GUILDS], presence: { activities }
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES], presence: { activities }
 });
 
 client.once('ready', () => {
@@ -39,6 +39,15 @@ client.once('ready', () => {
   cron.schedule('*/5 * * * *', () => {
     checkTwitter(client, { name: 'RRReol_official', id: '936463848449630208' });
   });
+});
+
+client.on('messageCreate', async message => {
+  if (message.channelId === config.photoGalleryId) {
+    if (message.attachments.size === 0) {
+      await message.delete();
+    }
+    // TODO: allow only images and videos to be uploaded
+  }
 });
 
 client.on('interactionCreate', async interaction => {
