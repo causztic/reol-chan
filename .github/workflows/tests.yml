@@ -14,9 +14,14 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v2
-      -
-        name: Dagger
+      - name: Install Dagger
         uses: dagger/dagger-action@v1
-        with:
-          # age-key: ${{ secrets.DAGGER_AGE_KEY }}
-          args: up
+        # https://github.com/dagger/dagger-action/pull/17
+        with:    
+          install-only: true
+      - name: Up
+        run: >
+          mkdir -p ~/.config/dagger && 
+          echo ${{ secrets.DAGGER_AGE_KEY }} > ~/.config/dagger/keys.txt &&
+          dagger up --environment ci
+        
