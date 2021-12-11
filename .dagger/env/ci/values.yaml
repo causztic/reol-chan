@@ -1,0 +1,23 @@
+plan:
+    package: ./ci
+name: ci
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1a6fwn2y4c2d9k3wt39cfq6myxcqqjscq7kq245fj7lvkhkf29dhqt62kmj
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBrQWJlelc4ZFJzTGJzNHIr
+            Nm9EMTk5anFPMDAvWnhySDB3cU9sNHV0ZUN3CmdWcHJDemd2LzI5RWpKNCs4Vm4w
+            UVJRRHp0S2FVcjdiMmZtK1dEWmxPczgKLS0tIEtib1UyV05JR3lFQ25BeEhMekFZ
+            cG03dUtUYU90YTlob0FoT2FYUEZuTEUKzYjEdY1s6Q1dq+6TdornaWFdOyE+/Dne
+            iPmZM3QjTM29vJAidRY5KLVI8lmW+4Bz4Mks0+me96wdsWQLlMK3oQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2021-12-11T02:29:20Z"
+    mac: ENC[AES256_GCM,data:kZ9TOf9M2IW0X+AAxryrctPvnvQXV10pPbIdDs7wWAqNc26hbJIsFwDMnwxKJM2xE7FGTmLHDiyLXeWlolnftn/0qY+pG0EuYVqtt94qC5yZDjFHmTPUb6JmT9qeuYWNB4Idt46y1audU0sXHnhmJSh74UWbMEG5E+ZI3X6Owts=,iv:6YpJJzmj7rIjG1SbEUnSz3wIBo3Z1zLF71n/r8f6Vbs=,tag:VoC1F51TsH5Jv4xEgLoi9A==,type:str]
+    pgp: []
+    encrypted_suffix: secret
+    version: 3.7.1
