@@ -1,6 +1,12 @@
 plan:
     package: ./ci
 name: ci
+inputs:
+    source:
+        dir:
+            path: .
+            exclude:
+                - node_modules
 sops:
     kms: []
     gcp_kms: []
@@ -16,8 +22,8 @@ sops:
             cG03dUtUYU90YTlob0FoT2FYUEZuTEUKzYjEdY1s6Q1dq+6TdornaWFdOyE+/Dne
             iPmZM3QjTM29vJAidRY5KLVI8lmW+4Bz4Mks0+me96wdsWQLlMK3oQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2021-12-11T02:29:20Z"
-    mac: ENC[AES256_GCM,data:kZ9TOf9M2IW0X+AAxryrctPvnvQXV10pPbIdDs7wWAqNc26hbJIsFwDMnwxKJM2xE7FGTmLHDiyLXeWlolnftn/0qY+pG0EuYVqtt94qC5yZDjFHmTPUb6JmT9qeuYWNB4Idt46y1audU0sXHnhmJSh74UWbMEG5E+ZI3X6Owts=,iv:6YpJJzmj7rIjG1SbEUnSz3wIBo3Z1zLF71n/r8f6Vbs=,tag:VoC1F51TsH5Jv4xEgLoi9A==,type:str]
+    lastmodified: "2021-12-11T03:07:52Z"
+    mac: ENC[AES256_GCM,data:/3N8+UxXQJCuSE8m7nFYZJbJC3cgHR/2FNohkSZdlErDgvLtFSO/1W3n/K1jeV/tjzQXiXiJoP2d6iGq7I5Ah+CQkJgRJwxik9vHyxyBERoCA8TSaIe8CucUJzG7XhQxlpMiiIgmEyrpQbuQ+sZQM2UcE4xorUTF15DBECj+P4w=,iv:hkb/8x0m75F8gtpKKdezdkmG03A3jo8vqPBvo1bQEKM=,tag:RMr1XLHnJPdTI43McSaMqQ==,type:str]
     pgp: []
     encrypted_suffix: secret
     version: 3.7.1
