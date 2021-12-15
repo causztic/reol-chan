@@ -11,14 +11,13 @@ const songLink = (song: songs) => {
 
 
 export const createEmbed = (album: albums & { songs: songs[] }): MessageEmbed => {
+  // NB: field values have a max length of 1024.
+  const tracklist = album.songs.map(song =>  songLink(song)).join('\n');
+
   const embed = new MessageEmbed()
   .setColor(0xEEAAEE)
   .setTitle(`${album.title} [${album.type}]`)
-  .addFields(
-    album.songs.map((song) => ( 
-      { name: '\u200B', value: songLink(song) }
-    )
-  ));
+  .addField('track list', tracklist);
 
   if (album.link) {
     embed.setDescription(`[${album.link}](${album.link})`);
