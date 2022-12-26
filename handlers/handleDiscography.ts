@@ -53,7 +53,7 @@ const populateChannelWithAlbum = async (interaction: CommandInteraction): Promis
   const albumId = interaction.options.getInteger('albumid', true);
   const channel = interaction.options.getChannel('channel', true);
 
-  const album = await prisma.albums.findFirst({ 
+  const album = await prisma.albums.findFirst({
     where: { id: albumId },
     include: { songs: true }
   });
@@ -67,7 +67,7 @@ const populateChannelWithAlbum = async (interaction: CommandInteraction): Promis
     const foundChannel = interaction.client.channels.cache.find(c => c === channel);
 
     (foundChannel as TextChannel)?.send({ embeds: [embed] });
-    
+
     interaction.followUp({
       ephemeral: true, content: 'Album populated in channel.'
     });
@@ -81,7 +81,7 @@ export const handleDiscography: CommandInteractionConsumer = async (interaction:
 
   const subCommandGroup = interaction.options.getSubcommandGroup(true);
   const subCommand = interaction.options.getSubcommand(true);
-  
+
   if (subCommandGroup === 'song') {
     if (subCommand === 'add') {
       await addSongToDiscography(interaction);
