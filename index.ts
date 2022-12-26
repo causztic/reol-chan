@@ -5,7 +5,7 @@ import { ActivitiesOptions, Client, Intents } from 'discord.js';
 import config from './config';
 import { handleCommandByName } from './handlers';
 import { MustBeInGuildError } from './util/mustBeInGuild';
-import { checkTwitter } from './twitter';
+// import { checkTwitter } from './twitter';
 
 const activities: ActivitiesOptions[] = [
   { name: '第六感', url: 'https://open.spotify.com/track/7JoAEFSQcQVP8CVQs9evCK', type: ActivityType.Listening },
@@ -25,15 +25,15 @@ client.once('ready', () => {
   cron.schedule('*/3 * * * *', () => {
     const item = activities[~~(Math.random() * activities.length)];
     client.user!.setActivity(item.name!, item);
-  });  
-
-  cron.schedule('*/2 * * * *', () => {
-    checkTwitter(client, { name: 'RRReol', id: '849666966' });
   });
 
-  cron.schedule('*/5 * * * *', () => {
-    checkTwitter(client, { name: 'RRReol_official', id: '936463848449630208' });
-  });
+  // cron.schedule('*/2 * * * *', () => {
+  //   checkTwitter(client, { name: 'RRReol', id: '849666966' });
+  // });
+
+  // cron.schedule('*/5 * * * *', () => {
+  //   checkTwitter(client, { name: 'RRReol_official', id: '936463848449630208' });
+  // });
 });
 
 client.on('messageCreate', async message => {
