@@ -9,8 +9,10 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
-    "start": "ts-node index.ts",
-    "update": "ts-node commands/index.ts"
+    "start": "node build/index.js",
+    "build": "tsc",
+    "postinstall": "npm run build",
+    "update": "node build/commands/index.js"
   },
   "repository": {
     "type": "git",
