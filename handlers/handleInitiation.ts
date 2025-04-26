@@ -3,7 +3,7 @@ import { CommandInteractionConsumer } from "./types";
 import { getGeneralChannel } from "../util/channel";
 import config from "../config";
 
-const ONE_WEEK = 604800000; //miliseconds
+const ONE_WEEK = 604800000; //milliseconds
 
 export const handleInitiation: CommandInteractionConsumer = async (interaction: CommandInteraction): Promise<void> => {
   const member = (interaction.member! as GuildMember);
