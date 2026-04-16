@@ -1,4 +1,4 @@
-import { CommandInteraction } from 'discord.js';
+import { ChatInputCommandInteraction } from 'discord.js';
 // import { handleDiscography } from './handleDiscography';
 import { handleInitiation } from './handleInitiation';
 import { handleRoles } from './handleRoles';
@@ -10,7 +10,7 @@ const COMMAND_MAP: { [key: string]: CommandInteractionConsumer } = {
   // discography: handleDiscography
 };
 
-export const handleCommandByName = (interaction: CommandInteraction): void => {
+export const handleCommandByName = (interaction: ChatInputCommandInteraction): void => {
   const name = interaction.commandName;
   COMMAND_MAP[name]?.(interaction);
 };

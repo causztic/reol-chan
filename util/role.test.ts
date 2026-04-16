@@ -1,3 +1,4 @@
+import { describe, expect, test } from '@jest/globals';
 import { isWhiteListedRole } from "./role";
 
 describe("isWhiteListedRole", () => {
