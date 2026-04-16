@@ -1,5 +1,5 @@
 import { albums, songs } from ".prisma/client";
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 
 const songLink = (song: songs) => {
   if (song.link !== null) {
@@ -10,14 +10,16 @@ const songLink = (song: songs) => {
 };
 
 
-export const createEmbed = (album: albums & { songs: songs[] }): MessageEmbed => {
+export const createEmbed = (album: albums & { songs: songs[] }): EmbedBuilder => {
   // NB: field values have a max length of 1024.
   const tracklist = album.songs.map(song =>  songLink(song)).join('\n');
 
-  const embed = new MessageEmbed()
+  const embed = new EmbedBuilder()
   .setColor(0xEEAAEE)
   .setTitle(`${album.title} [${album.type}]`)
-  .addField('track list', tracklist);
+  .addFields([
+    { name: 'track list', value: tracklist }
+  ])
 
   if (album.link) {
     embed.setDescription(`[${album.link}](${album.link})`);

@@ -4,15 +4,14 @@
 /* eslint-disable global-require */
 
 import fs from 'fs';
-import { REST } from '@discordjs/rest';
-import { Routes } from 'discord-api-types/v9';
+import { REST, Routes } from 'discord.js';
 import config from '../config';
 import { 
   ApplicationCommandResponse, 
   SlashCommandBuilderJSONWithPermissions, 
   SlashCommandWithPermissions } from './types';
 
-const rest = new REST({ version: '9' }).setToken(config.token);
+const rest = new REST({ version: '10' }).setToken(config.token);
 
 const readCommandsFromDirectory = () => {
   const commands: Record<string, SlashCommandBuilderJSONWithPermissions> = {};
@@ -23,11 +22,11 @@ const readCommandsFromDirectory = () => {
   // eslint-disable-next-line no-restricted-syntax
   for (const file of commandFiles) {
     console.log(`Registering ${file}`);
-    const { data, isPublic, permissions }: SlashCommandWithPermissions = require(`./${file}`).default;
+    const { data, permissions, isPublic }: SlashCommandWithPermissions = require(`./${file}`).default;
   
     // https://discord.com/developers/docs/interactions/application-commands
     commands[data.name] = {
-      data: { ...data.toJSON(), default_permission: isPublic ?? false },
+      data: { ...data.toJSON(), default_permission: isPublic ?? false, options: data.options},
       permissions,
     };
   }

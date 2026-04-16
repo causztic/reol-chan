@@ -1,11 +1,11 @@
-import { CommandInteraction, TextChannel } from "discord.js";
+import { ChatInputCommandInteraction, TextChannel } from "discord.js";
 import { PrismaClient } from "@prisma/client";
 import { CommandInteractionConsumer } from "./types";
 import { createEmbed } from "../util/embed";
 
 const prisma = new PrismaClient();
 
-const addSongToDiscography = async (interaction: CommandInteraction): Promise<void> => {
+const addSongToDiscography = async (interaction: ChatInputCommandInteraction): Promise<void> => {
   const title = interaction.options.getString('title', true);
   const year = interaction.options.getInteger('year', true);
   const index = interaction.options.getInteger('index', true);
@@ -27,7 +27,7 @@ const addSongToDiscography = async (interaction: CommandInteraction): Promise<vo
   });
 };
 
-const addAlbumToDiscography = async (interaction: CommandInteraction): Promise<void> => {
+const addAlbumToDiscography = async (interaction: ChatInputCommandInteraction): Promise<void> => {
   const title = interaction.options.getString('title', true);
   const year = interaction.options.getInteger('year', true);
   const type = interaction.options.getString('type', true);
@@ -49,7 +49,7 @@ const addAlbumToDiscography = async (interaction: CommandInteraction): Promise<v
   });
 };
 
-const populateChannelWithAlbum = async (interaction: CommandInteraction): Promise<void> => {
+const populateChannelWithAlbum = async (interaction: ChatInputCommandInteraction): Promise<void> => {
   const albumId = interaction.options.getInteger('albumid', true);
   const channel = interaction.options.getChannel('channel', true);
 
@@ -76,7 +76,7 @@ const populateChannelWithAlbum = async (interaction: CommandInteraction): Promis
 
 
 
-export const handleDiscography: CommandInteractionConsumer = async (interaction: CommandInteraction): Promise<void> => {
+export const handleDiscography: CommandInteractionConsumer = async (interaction: ChatInputCommandInteraction): Promise<void> => {
   await interaction.deferReply();
 
   const subCommandGroup = interaction.options.getSubcommandGroup(true);

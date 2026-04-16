@@ -1,5 +1,4 @@
-import { SlashCommandBuilder } from '@discordjs/builders';
-import { ApplicationCommandOptionData } from "discord.js";
+import { ApplicationCommandOptionData, SlashCommandBuilder } from "discord.js";
 
 export interface ApplicationCommandResponse {
   id: string,

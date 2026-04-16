@@ -1,14 +1,14 @@
 import {
-  CommandInteraction, GuildMember, MessageEmbed,
+  ChatInputCommandInteraction, GuildMember, EmbedBuilder,
 } from 'discord.js';
 import { CommandInteractionConsumer } from './types';
 
 import { isWhiteListedRole } from '../util/role';
 import { mustBeInGuild } from '../util/mustBeInGuild';
 
-const listRoles = async (interaction: CommandInteraction) => {
+const listRoles = async (interaction: ChatInputCommandInteraction) => {
   // TODO: try out multiple embeds
-  const embed = new MessageEmbed()
+  const embed = new EmbedBuilder()
     .setColor(0x42cef5)
     .setDescription('■▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬■ \n'
       + '**General Roles** \n'
@@ -31,7 +31,7 @@ const listRoles = async (interaction: CommandInteraction) => {
   });
 };
 
-const giveRole = async (interaction: CommandInteraction) => {
+const giveRole = async (interaction: ChatInputCommandInteraction) => {
   mustBeInGuild(interaction);
 
   const input = interaction.options.getString('name', true);
@@ -54,7 +54,7 @@ const giveRole = async (interaction: CommandInteraction) => {
   });
 };
 
-const removeRole = async (interaction: CommandInteraction) => {
+const removeRole = async (interaction: ChatInputCommandInteraction) => {
   mustBeInGuild(interaction);
 
   const input = interaction.options.getString('name', true);
@@ -77,7 +77,7 @@ const removeRole = async (interaction: CommandInteraction) => {
   });
 };
 
-export const handleRoles: CommandInteractionConsumer = async (interaction: CommandInteraction): Promise<void> => {
+export const handleRoles: CommandInteractionConsumer = async (interaction: ChatInputCommandInteraction): Promise<void> => {
   const subCommand = interaction.options.getSubcommand();
   if (subCommand === 'list') {
     await listRoles(interaction);
